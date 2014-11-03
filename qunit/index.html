@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>QUnit Example</title>
+<link rel="stylesheet" type="text/css" href="qunit/qunit.css">
+</head>
+<body>
+<div id="qunit"></div>
+<div id="qunit-fixture"></div>
+<script src="qunit/qunit.js"></script>
+<script>
+//定义测试模块
+module( "测试示例1" );
+function qUnitTest(para) {
+  if(typeof para == "number") {
+    return true;
+  }
+  else{
+    return false;
+  }
+}
+
+
+// Let's test this function
+function isEven(val) {
+	return val % 2 === 0;
+}
+
+//测试
+test(['qUnitTest()','isEven()'], function() {
+    ok(qUnitTest(4), '4是一个数字');
+    ok(!qUnitTest("4"), '"4"不是一个数字');
+    ok(isEven(0), 'Zero is an even number');
+    ok(isEven(2), 'So is two');
+    ok(isEven(-4), 'So is negative four');
+    ok(!isEven(1), 'One is not an even number');
+    ok(!isEven(-7), 'Neither is negative seven');
+});
+
+
+</script>
+</body>
+</html>
